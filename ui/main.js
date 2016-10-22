@@ -1,18 +1,18 @@
-console.log('Loaded!');
-var element = document.getElementById('main-text');
-element.innerHTML="this is from javascript";
+// console.log('Loaded!');
+// var element = document.getElementById('main-text');
+// element.innerHTML="this is from javascript";
 
-var image=document.getElementById('madi');
-var marginLeft=0;
-function moveRight(){
-    marginLeft = marginLeft+1;
-    image.style.marginLeft=marginLeft +'px';
-}
-image.onclick=function(){
-    var interval=setInterval(moveRight,50);
+// var image=document.getElementById('madi');
+// var marginLeft=0;
+// function moveRight(){
+//     marginLeft = marginLeft+1;
+//     image.style.marginLeft=marginLeft +'px';
+// }
+// image.onclick=function(){
+//     var interval=setInterval(moveRight,50);
     
     
-};
+// };
 
 //button response
 var button=document.getElementById('counter');
