@@ -37,7 +37,7 @@ var articleOne={
                 
 };
 
-function crateTempalte(data){
+function crateTemplate(data){
     var title = data.title;
     var heading = data.heading;
     var date = data.date;
