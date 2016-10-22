@@ -5,37 +5,65 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-
-var articleOne={
-    title:`Article One | Akhil`,
-    heading:'article one',
-    date:`otober 22 2016`,
-    content:`<p> 
-                this is a demo content for article one.. Loreum ipsum ipsum loreum loreum ipsum
-                ipsum loreumoreum ipsum ipsum loreum loreum ipsum
-                ipsum loreumoreum ipsum ipsum loreum loreum ipsum
-                ipsum loreumoreum ipsum ipsum loreum loreum ipsum
-                ipsum loreumoreum ipsum ipsum loreum loreum ipsum
-                ipsum loreum
-            </p>
-             <p> 
-                this is a demo content for article one.. Loreum ipsum ipsum loreum loreum ipsum
-                ipsum loreumoreum ipsum ipsum loreum loreum ipsum
-                ipsum loreumoreum ipsum ipsum loreum loreum ipsum
-                ipsum loreumoreum ipsum ipsum loreum loreum ipsum
-                ipsum loreumoreum ipsum ipsum loreum loreum ipsum
-                ipsum loreum
-            </p>
-             <p> 
-                this is a demo content for article one.. Loreum ipsum ipsum loreum loreum ipsum
-                ipsum loreumoreum ipsum ipsum loreum loreum ipsum
-                ipsum loreumoreum ipsum ipsum loreum loreum ipsum
-                ipsum loreumoreum ipsum ipsum loreum loreum ipsum
-                ipsum loreumoreum ipsum ipsum loreum loreum ipsum
-                ipsum loreum
-            </p>`
+var articles={
+    'article-one':{
+        title:`Article One | Akhil`,
+        heading:'article one',
+        date:`otober 22 2016`,
+        content:`<p> 
+                    this is a demo content for article one.. Loreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreum
+                </p>
+                 <p> 
+                    this is a demo content for article one.. Loreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreum
+                </p>
+                 <p> 
+                    this is a demo content for article one.. Loreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreum
+                </p>`
                 
-};
+},
+    'article-two':{
+        title:`Article Two | Akhil`,
+        heading:'article two',
+        date:`otober 22 2016`,
+        content:`<p> 
+                    this is a demo content for article two.. Loreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreum
+                </p>`
+                 
+    },
+    'article-three':{
+        title:`Article Three | Akhil`,
+        heading:'article three',
+        date:`otober 22 2016`,
+        content:`<p> 
+                    this is a demo content for article three.. Loreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreumoreum ipsum ipsum loreum loreum ipsum
+                    ipsum loreum
+                </p>`
+    }
+}
 
 function createTemplate(data){
     var title = data.title;
@@ -75,15 +103,11 @@ function createTemplate(data){
 
 
 
-app.get('/article-one',function(req,res){
-    res.send(createTemplate(articleOne));
+app.get('/:articleName',function(req,res){
+    var articleName=req.params.articleName;
+    res.send(createTemplate(articles[articleName]));
 });
-app.get('/article-two',function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-app.get('/article-three',function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
