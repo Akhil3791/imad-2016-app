@@ -4,6 +4,6 @@ element.innerHTML="this is from javascript";
 
 var image=document.getElementById('madi');
 image.onclick=function(){
-    image.style.marginleft='100px';
+    image.style.marginLeft='100px';
     
 }
